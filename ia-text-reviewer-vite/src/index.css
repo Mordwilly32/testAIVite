@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+:root{
+  --bg-1: #0b1020;
+  --bg-2: #071029;
+  --card: rgba(255,255,255,0.04);
+  --muted: #9aa7bf;
+  --accent: #2dd4ff;
+  --neon: #60a5fa;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: radial-gradient(1200px 400px at 10% 10%, #021028 0%, transparent 15%), linear-gradient(180deg, var(--bg-1), var(--bg-2));
+  color:#dbeafe;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Layout */
+.app{min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:40px 20px}
+.panel{width:100%; max-width:920px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:14px; box-shadow: 0 10px 40px rgba(2,6,23,0.6); overflow:hidden; display:flex; flex-direction:column}
+
+/* Header */
+.header{display:flex; align-items:center; justify-content:space-between; padding:18px 22px; border-bottom:1px solid rgba(255,255,255,0.03)}
+.brand{display:flex; gap:12px; align-items:center}
+.logo{width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--neon),var(--accent)); box-shadow:0 6px 18px rgba(96,165,250,0.12); font-size:22px}
+.title{font-weight:700; font-size:16px}
+.subtitle{font-size:12px; color:var(--muted)}
+
+/* Controls */
+.controls{display:flex; gap:8px; align-items:center}
+.select{background:transparent; border:1px solid rgba(255,255,255,0.04); padding:8px 10px; border-radius:8px; color:inherit}
+.instr{background:transparent; border:1px solid rgba(255,255,255,0.04); padding:8px 10px; border-radius:8px; color:inherit}
+.btn{background:linear-gradient(90deg,var(--neon),var(--accent)); color:#021028; padding:8px 12px; border-radius:10px; border:none; cursor:pointer; font-weight:600}
+.btn.ghost{background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.03)}
+
+/* Chat area */
+.chat{padding:18px 22px; display:flex; flex-direction:column; gap:12px; max-height:60vh; overflow:auto; background:linear-gradient(180deg, rgba(255,255,255,0.005), transparent)}
+
+/* Bubbles */
+.bubble{max-width:78%; padding:0; display:flex}
+.bubble .bubble-content{padding:12px 14px; border-radius:12px; line-height:1.4; white-space:pre-wrap; box-shadow: 0 6px 20px rgba(2,6,23,0.6)}
+.bubble.user{align-self:flex-end}
+.bubble.user .bubble-content{background:linear-gradient(90deg,#0ea5e9,#60a5fa); color:#021028; border-bottom-right-radius:4px}
+.bubble.ia{align-self:flex-start}
+.bubble.ia .bubble-content{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); color:var(--muted); border-bottom-left-radius:4px; border: 1px solid rgba(255,255,255,0.02)}
+
+/* Typing */
+.typing{font-style:italic; opacity:0.9}
+
+/* Composer */
+.composer{display:flex; gap:12px; padding:16px 22px; border-top:1px solid rgba(255,255,255,0.02); align-items:center}
+.composer textarea{flex:1; min-height:56px; max-height:140px; resize:vertical; padding:12px; border-radius:10px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03); color:inherit}
+.composer-actions{display:flex; gap:8px; align-items:center}
+
+/* Footer */
+.footer{margin-top:18px; color:var(--muted); font-size:13px}
+@media (max-width:640px){
+  .panel{margin:0 8px}
+  .chat{max-height:55vh}
+  .brand .subtitle{display:none}
+}
